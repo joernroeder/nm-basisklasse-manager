@@ -82,7 +82,9 @@ class Manager {
 	}
 
 	public function isWorkshop($key) {
-		return isset($this->getWorkshops()[$key]);
+		$workshops = $this->getWorkshops();
+		
+		return isset($workshops[$key]) ? true : false;
 	}
 
 	public function checkMemberUpdate() {

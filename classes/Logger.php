@@ -19,7 +19,7 @@ class Logger {
 
 		// add fingerprint
 		if (isset($_POST['fingerprint'])) {
-			$info['fingerprint'] = (int) $_POST['fingerprint']);
+			$info['fingerprint'] = (int) $_POST['fingerprint'];
 		}
 
 		// add user agent
