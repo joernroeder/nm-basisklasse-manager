@@ -1,0 +1,3 @@
+[submodule "php-login-minimal"]
+	path = php-login-minimal
+	url = https://github.com/panique/php-login-minimal.git
