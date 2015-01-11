@@ -24,7 +24,11 @@ class Manager {
 			$members_result = $this->db_connection->query($sql);
 
 			if ($members_result->num_rows) {
-				return $this->resultToArray($members_result);
+				$members = $this->resultToArray($members_result);
+
+				uasort($members, array($this, 'lastNameSort'));
+
+				return $members;
 			}
 		}
 
@@ -93,6 +97,16 @@ class Manager {
 		}
 
 		$this->doMemberUpdate($_POST);
+	}
+
+	/**
+	 * @see http://stackoverflow.com/a/9370665/520544
+	 */
+	private function lastNameSort($a, $b) {
+		$aLast = end(explode(' ', $a->fullname));
+		$bLast = end(explode(' ', $b->fullname));
+
+		return strcasecmp($aLast, $bLast);
 	}
 
 	private function resultToArray($result) {
