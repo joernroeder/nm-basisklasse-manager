@@ -9,25 +9,30 @@ $members = $manager->getMembers();
 	<form method="post" action="index.php" name="memberupdateform">
 		<div class="small-12 columns">
 			<table class="small-12">
-				<tr>
-					<th scope="column">Name</th>
-					<?php foreach ($manager->getWorkshops() as $key => $name) : ?>
-						<th scope="column"><?php echo $key ?></th>
-					<?php endforeach; ?>
-				</tr>
+				<thead>
+					<tr>
+						<th scope="column">Name</th>
+						<?php foreach ($manager->getWorkshops() as $key => $name) : ?>
+							<th scope="column"><?php echo $key ?></th>
+						<?php endforeach; ?>
+					</tr>
+				</thread>
+				<tbody>
+					<?php if (sizeof($members)) {
+						foreach ($members as $member) {
+							include 'views/includes/member_row.php';
+						}
+					} ?>
+				</tbody>
 
-				<?php if (sizeof($members)) {
-					foreach ($members as $member) {
-						include 'views/includes/member_row.php';
-					}
-				} ?>
-
-				<tr>
-					<th scope="column">Name</th>
-					<?php foreach ($manager->getWorkshops() as $key => $name) : ?>
-						<th scope="column"><?php echo $key ?></th>
-					<?php endforeach; ?>
-				</tr>
+				<tfooter>
+					<tr>
+						<th scope="column">Name</th>
+						<?php foreach ($manager->getWorkshops() as $key => $name) : ?>
+							<th scope="column"><?php echo $key ?></th>
+						<?php endforeach; ?>
+					</tr>
+				</tfooter>
 			</table>
 		</div>
 		<div class="small-12 colums text-center">

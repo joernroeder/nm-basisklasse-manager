@@ -2,6 +2,7 @@
 		<script src="assets/js/vendor/jquery.js"></script>
 		<script src="assets/js/foundation.min.js"></script>
 		<script src="assets/js/fingerprint.js"></script>
+		<script src="assets/js/jquery.floatThead.min.js"></script>
 		<script>
 			$(document).foundation();
 
@@ -10,6 +11,8 @@
 
 			if ($finger.length) { $finger.val(new Fingerprint().get({canvas: true})); }
 			if ($uagent.length) { $uagent.val(navigator.userAgent); }
+
+			$('table').floatThead({ useAbsolutePositioning: false });
 		</script>
 	</body>
 </html>
